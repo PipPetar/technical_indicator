@@ -1,3 +1,9 @@
+"""
+app.py
+Defines the Tkinter-based GUI for displaying financial data and indicators.
+"""
+
+
 import tkinter as tk
 from tkinter import ttk
 import matplotlib.pyplot as plt
@@ -8,6 +14,7 @@ from indicators.sma import apply_sma
 from indicators.ema import apply_ema
 from indicators.rsi import apply_rsi
 from indicators.bollinger import apply_bollinger
+
 
 class App(tk.Tk):
     def __init__(self):

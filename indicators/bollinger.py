@@ -1,3 +1,9 @@
+"""
+bollinger.py
+Implements Bollinger Bands calculation.
+"""
+
+
 def apply_bollinger(df, window=20):
     ma = df["Close"].rolling(window).mean()
     sd = df["Close"].rolling(window).std()

@@ -1,3 +1,8 @@
+"""
+main.py
+Launches the Tkinter GUI application.
+"""
+
 from gui.app import App
 
 if __name__ == "__main__":
