@@ -3,7 +3,6 @@ app.py
 Defines the Tkinter-based GUI for displaying financial data and indicators.
 """
 
-
 import tkinter as tk
 from tkinter import ttk
 import matplotlib.pyplot as plt
@@ -14,6 +13,8 @@ from indicators.sma import apply_sma
 from indicators.ema import apply_ema
 from indicators.rsi import apply_rsi
 from indicators.bollinger import apply_bollinger
+
+YEARS = [1, 2, 3, 4, 5]
 
 
 class App(tk.Tk):
@@ -29,7 +30,7 @@ class App(tk.Tk):
         # Year dropdown
         tk.Label(self, text="Years:").grid(row=1, column=0, padx=5, pady=5)
         self.years_var = tk.IntVar(value=1)
-        ttk.Combobox(self, textvariable=self.years_var, values=[1,2,3,4,5]).grid(row=1, column=1, padx=5, pady=5)
+        ttk.Combobox(self, textvariable=self.years_var, values=YEARS).grid(row=1, column=1, padx=5, pady=5)
 
         # Indicators checkboxes
         self.sma_var = tk.BooleanVar()
@@ -61,7 +62,7 @@ class App(tk.Tk):
             df = apply_bollinger(df)
 
         # Plot
-        fig, ax = plt.subplots(figsize=(6,4))
+        fig, ax = plt.subplots(figsize=(6, 4))
         ax.plot(df["Close"], label="Close")
         if self.sma_var.get():
             ax.plot(df["SMA"], label="SMA")
